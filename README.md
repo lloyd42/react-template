@@ -1,69 +1,42 @@
-# React + TypeScript + Vite
+# React 项目模板
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+这是一个基于 React + TypeScript + Vite 的现代化前端项目模板。
 
-Currently, two official plugins are available:
+## 特性
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚡️ [Vite](https://vitejs.dev/) - 极速的下一代前端构建工具。
+- ⚛️ [React 19](https://react.dev/) - 用于构建用户界面的库。
+- 📘 [TypeScript](https://www.typescriptlang.org/) - JavaScript 的超集，添加了类型支持。
+- 🎨 [Biome](https://biomejs.dev/) - 高性能的代码格式化和 Lint 工具。
+- 🧪 [Vitest](https://vitest.dev/) - 由 Vite 提供支持的极速单元测试框架。
+- 🎭 [Playwright](https://playwright.dev/) - 可靠的端到端测试工具。
+- 🔍 [Lefthook](https://github.com/evilmartians/lefthook) - 快速而强大的 Git 钩子管理器。
+- 💬 [Commitlint](https://commitlint.js.org/) - 检查你的提交信息是否符合规范。
+- 📦 [pnpm](https://pnpm.io/) - 快速、节省磁盘空间的前端包管理器。
 
-## Expanding the ESLint configuration
+## 如何开始
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 环境要求
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- [Node.js](https://nodejs.org/) (>=20)
+- [pnpm](https://pnpm.io/installation)
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 安装
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 可用脚本
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `pnpm dev` - 启动开发服务器。
+- `pnpm build` - 构建生产环境的应用。
+- `pnpm test` - 运行单元测试。
+- `pnpm test:e2e` - 运行端到端测试。
+- `pnpm format` - 使用 Biome 格式化代码。
+- `pnpm lint` - 使用 Biome 检查代码。
+- `pnpm preview` - 本地预览生产构建。
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Git 提交规范
+
+本项目使用 [Commitlint](https://commitlint.js.org/) 来规范 Git 提交信息，并结合 [Lefthook](https://github.com/evilmartians/lefthook) 在 `commit-msg` 钩子中进行校验。请确保你的提交信息符合 [Conventional Commits](https://www.conventionalcommits.org/) 规范。
